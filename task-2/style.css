@@ -1,0 +1,47 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  /* Default desktop styles: menu is visible, row layout, no transform applied for hiding */
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    /*
+     * Default state for mobile: positioned off-screen.
+     */
+    transform: translateY(-150%);
+    /*
+     * Apply the transition only when in the mobile context.
+     * This will make the menu slide in/out when the .open class is toggled.
+     */
+    transition: transform 0.3s ease;
+    /*
+     * Crucial for fixing "ghosting":
+     * Hide the menu immediately when the breakpoint is met.
+     * This prevents it from briefly showing before it slides away.
+     */
+    visibility: hidden;
+  }
+
+  .menu.open {
+    /*
+     * When the 'open' class is present:
+     * Bring the menu into view and make it visible.
+     * The 'transform' will animate due to the 'transition' property defined above.
+     */
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
