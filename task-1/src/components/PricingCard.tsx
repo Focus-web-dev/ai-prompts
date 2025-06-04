@@ -56,7 +56,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   // Conditional background and text colors based on the 'isFeatured' prop.
   // Also includes conditional vertical padding to adjust height.
   const cardColorsAndPadding = isFeatured
-    ? "bg-gray-800 text-white py-10" // Featured card: dark background, white text, more vertical padding
+    ? "bg-gray-800 text-white py-10 z-10" // Featured card: dark background, white text, more vertical padding
     : "bg-white text-gray-800 py-8"; // Normal card: white background, dark text, standard vertical padding
 
   // Conditional button colors and styles based on the 'isFeatured' prop.
